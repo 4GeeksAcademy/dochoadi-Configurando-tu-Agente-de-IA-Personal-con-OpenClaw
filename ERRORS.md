@@ -70,3 +70,40 @@ openclaw pairing approve telegram VCBGM9ZH
 Esto registró automáticamente `commands.ownerAllowFrom` con el ID de Telegram del estudiante como dueño/operador del bot.
 
 **Lección:** el primer mensaje a un canal nuevo no siempre llega directo al agente — puede requerir aprobación de "dueño" antes de empezar a conversar normalmente.
+
+---
+
+## 2026-10-27 — OAuth del MCP de Zapier: el callback local no es alcanzable desde el navegador del usuario
+
+**Síntoma:** tanto `mcporter auth zapier` como `openclaw mcp login zapier` generan una URL de autorización de Zapier cuyo `redirect_uri` apunta a `http://127.0.0.1:<puerto>/...` — un servidor que levanta el propio proceso **en el VPS**. El estudiante se conecta desde su Mac/navegador, no desde el VPS, así que ese `127.0.0.1` no apunta a ningún sitio alcanzable para él.
+
+**Intentos:**
+1. Túnel SSH (`ssh -L <puerto>:127.0.0.1:<puerto> root@VPS`) — en teoría válido, pero el proceso de `mcporter auth` tiene un timeout de 300s y expiró dos veces mientras se coordinaba el túnel (incluyendo un intento donde el túnel no llegó a confirmarse y dio `ERR_CONNECTION_REFUSED` / `channel N: open failed: connect failed: Connection refused`).
+2. Al reintentar sin esperar demasiado entre pasos, `mcporter auth zapier` sí completó la autorización (quedó cacheada) — confirmado porque una ejecución posterior terminó instantáneamente sin pedir nueva autorización, y en Zapier (pestaña Clients) el cliente `OpenClaw` pasó de `Pending` a `Connected`.
+3. Para la autenticación propia de **OpenClaw** (`openclaw mcp login zapier`, independiente de la de `mcporter`), se usó un método más simple que no requiere túnel: el propio comando imprime en el log `Open this URL to authorize... If the callback cannot reach this terminal, run openclaw mcp login zapier --code <code>`. El estudiante autorizó en su navegador, el navegador intentó redirigir a `127.0.0.1:8989/oauth/callback?code=...` (dando error de conexión, visible pero sin problema), y se copió el valor de `code=` de la barra de direcciones para pasarlo manualmente:
+   ```
+   openclaw mcp login zapier --code <código_copiado_de_la_url>
+   ```
+
+**Solución final:** usar el flag `--code <código>` en vez de depender de que el callback local sea alcanzable — evita por completo la necesidad de túnel SSH.
+
+**Lección:** cuando un flujo OAuth de un MCP corre en un servidor remoto (VPS) y el navegador está en otra máquina, buscar primero si la herramienta ofrece un modo de "pegar el código manualmente" antes de montar un túnel SSH — es más simple y más rápido.
+
+---
+
+## 2026-10-27 — MCP de Zapier conectado pero falla con "SSE error: Non-200 status code (405)"
+
+**Síntoma:** tras autenticar correctamente (`openclaw mcp login zapier` exitoso), `openclaw mcp probe zapier` fallaba con:
+```
+SSE error: Non-200 status code (405); server unavailable
+```
+
+**Diagnóstico:** el servidor se había registrado sin especificar el transporte HTTP, y OpenClaw intentaba conectarse por defecto usando SSE (Server-Sent Events), que el endpoint de Zapier no acepta (responde 405 Method Not Allowed a ese tipo de conexión).
+
+**Solución:** forzar el transporte correcto (`streamable-http`) al guardar la configuración del servidor:
+```
+openclaw mcp set zapier '{"url":"https://mcp.zapier.com/api/v1/connect","auth":"oauth","transport":"streamable-http"}'
+```
+Tras esto, `openclaw mcp probe zapier` mostró `zapier: 17 tools, Codex approval auto`.
+
+**Lección:** si un MCP HTTP falla con error 405 en el handshake, revisar/forzar el tipo de transporte (`streamable-http` vs `sse`) antes de asumir que es un problema de autenticación o de red.

@@ -88,21 +88,21 @@
 
 | Tarea | Estado | Notas |
 |---|---|---|
-| Crear cuenta gratuita en Zapier | ⏳ Pendiente | — |
-| Generar URL de endpoint MCP | ⏳ Pendiente | — |
-| Agregar el MCP al agente en OpenClaw | ⏳ Pendiente | — |
-| Conectar y verificar Google Docs | ⏳ Pendiente | — |
-| Conectar y verificar Google Calendar | ⏳ Pendiente | — |
+| Crear cuenta gratuita en Zapier | ✅ Completado | Servidor "4Geeks MCP Server" con apps Google Docs, Google Calendar, Gmail |
+| Generar URL de endpoint MCP | ✅ Completado | `https://mcp.zapier.com/api/v1/connect` |
+| Agregar el MCP al agente en OpenClaw | ✅ Completado | `openclaw mcp add zapier --url ... --auth oauth`, autenticado con `mcporter` + `openclaw mcp login --code`; hubo que forzar `transport: streamable-http` (ver `ERRORS.md`) |
+| Conectar y verificar Google Docs | ✅ Completado | Verificado: el agente lista 19 acciones y creó un documento real (`pruebabot`) — ver Paso 3 |
+| Conectar y verificar Google Calendar | ✅ Completado (listado) | El agente lista 22 acciones de Calendar; creación real de evento pendiente de probar en Paso 3 |
 
 ## Paso 3 — Flujo completo de punta a punta
 
 | Tarea | Estado | Notas |
 |---|---|---|
-| Enviar mensaje por Telegram pidiendo crear un documento | ⏳ Pendiente | — |
-| Verificar que el agente pide info adicional si falta | ⏳ Pendiente | — |
-| Verificar creación del documento en Google Docs | ⏳ Pendiente | — |
-| Verificar creación del evento en el calendario | ⏳ Pendiente | — |
-| Confirmar mensaje de finalización por Telegram | ⏳ Pendiente | — |
+| Enviar mensaje por Telegram pidiendo crear un documento | ✅ Completado | "Crea un documento en Google docs q se llame pruebabot" — ver `openclaw-connection/03-documento-creado-google-docs.png` |
+| Verificar que el agente pide info adicional si falta | ✅ Completado | Prueba adicional con mensaje ambiguo ("Crea un documento en Google docs", sin más datos) — Kai preguntó por nombre y contenido antes de crear nada; ver `openclaw-connection/05-agente-pide-info-faltante.png` |
+| Verificar creación del documento en Google Docs | ✅ Completado | Documento real creado y enlazado: `pruebabot`, propietario `dochoadi@gmail.com` |
+| Verificar creación del evento en el calendario | ✅ Completado | Evento "Manicura" creado el 28/10/2026 15:00-16:00 en `dochoadi@gmail.com` — ver `openclaw-connection/04-evento-creado-google-calendar.jpg` |
+| Confirmar mensaje de finalización por Telegram | ✅ Completado | Kai confirmó cada acción con ✅ y resumen estructurado |
 
 ## Paso 4 — Evidencias y entrega
 
@@ -110,10 +110,11 @@
 |---|---|---|
 | Carpeta `openclaw-connection/` creada | ✅ Completado | Dentro de este mismo repo |
 | Captura: Telegram conectado | ✅ Completado | `openclaw-connection/01-telegram-conectado.png` |
-| Captura: MCP Zapier conectado | ⏳ Pendiente | — |
-| Captura: conversación completa en Telegram | ⏳ Pendiente | — |
-| Captura: documento creado en Google Docs | ⏳ Pendiente | — |
-| Captura: evento creado en el calendario | ⏳ Pendiente | — |
+| Captura: MCP Zapier conectado | ⏳ Pendiente | Se vio en pantalla (estado "OpenClaw — Connected" en Zapier) pero no se guardó archivo; opcional, ya cubierto funcionalmente por las demás capturas |
+| Captura: conversación completa en Telegram | ✅ Completado | `openclaw-connection/02-conversacion-telegram-email.png` (incluye envío de email de prueba, no pedido originalmente pero evidencia adicional de que las apps funcionan) |
+| Captura: documento creado en Google Docs | ✅ Completado | `openclaw-connection/03-documento-creado-google-docs.png` |
+| Captura: evento creado en el calendario | ✅ Completado | `openclaw-connection/04-evento-creado-google-calendar.jpg` |
+| Captura: agente pide info faltante | ✅ Completado | `openclaw-connection/05-agente-pide-info-faltante.png` |
 | `notes.md` con decisiones/problemas | ⏳ Pendiente | — |
 
 ## Registro de errores de esta actividad
