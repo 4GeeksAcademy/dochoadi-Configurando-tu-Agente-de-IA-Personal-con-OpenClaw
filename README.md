@@ -1,12 +1,18 @@
 # Configurando tu Agente de IA Personal con OpenClaw
 
-Documentación de entrega del ejercicio de 4Geeks Academy: despliegue y configuración de una instancia de **OpenClaw** autoalojada en un VPS, conectada a un modelo de IA vía **LiteLLM**.
+Repositorio de documentación y entrega de los ejercicios de 4Geeks Academy sobre **OpenClaw**: despliegue de una instancia autoalojada en un VPS, conexión a un modelo de IA, y ampliación con integraciones externas. Este mismo repositorio se usa para todos los ejercicios del curso relacionados, cada uno documentado en su propia sección de `TRACKING.md`.
 
 ## Contenido de este repositorio
-- [`CONTEXT.md`](./CONTEXT.md) — contexto del ejercicio, alcance y criterios de evaluación
-- [`TRACKING.md`](./TRACKING.md) — seguimiento del estado de cada actividad
+- [`CONTEXT.md`](./CONTEXT.md) — contexto de los ejercicios, alcance y criterios de evaluación
+- [`TRACKING.md`](./TRACKING.md) — seguimiento del estado de cada actividad, por ejercicio
+- [`ERRORS.md`](./ERRORS.md) — registro de errores encontrados y cómo se resolvieron
+- [`.openclaw/workspace/`](./.openclaw/workspace/) — el workspace real de OpenClaw (identidad, memoria, logs)
+- [`openclaw-connection/`](./openclaw-connection/) — evidencias (capturas y notas) del ejercicio de conexión con Telegram/Zapier
 
-## Entregable real
-El entregable del ejercicio es la carpeta `~/.openclaw/workspace` del VPS, subida a un repositorio separado: `openclaw-dochoadi` (ver `TRACKING.md` → Actividad 3).
+## Ejercicios documentados aquí
 
-Este repositorio (`dochoadi-Configurando-tu-Agente-de-IA-Personal-con-OpenClaw`) documenta el proceso, no contiene el workspace en sí.
+### 1. Configurando tu Agente de IA Personal con OpenClaw
+Instalación y configuración básica en el VPS, conexión a LiteLLM, personalización de identidad y respaldo del workspace en GitHub. Se decidió usar este mismo repositorio (asignado por el classroom) en vez de crear un repo nuevo `openclaw-<usuario>` — ver `TRACKING.md`.
+
+### 2. Conecta tu Agente: Telegram, Google Docs y Calendario
+Conexión del agente a Telegram y, vía el MCP de Zapier, a Google Docs y Google Calendar — ver sección correspondiente en `TRACKING.md`.

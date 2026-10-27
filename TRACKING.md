@@ -68,3 +68,54 @@
 - [x] Sin API keys o tokens en texto plano
 - [x] `.gitignore` presente y verificado
 - [x] Historial completo de git escaneado, sin secretos
+
+---
+
+# Conecta tu Agente: Telegram, Google Docs y Calendario
+
+Última actualización: 2026-10-27
+
+## Paso 1 — Conexión con Telegram
+
+| Tarea | Estado | Notas |
+|---|---|---|
+| Crear bot con BotFather y obtener token | ✅ Completado | Bot final: `@Kai_assistance_dochoadi_bot` (un bot anterior se creó y se borró accidentalmente — ver `ERRORS.md`) |
+| Configurar OpenClaw para usar Telegram | ✅ Completado | `openclaw channels add --channel telegram --token <token>` |
+| Aprobar emparejamiento (command owner) | ✅ Completado | `openclaw pairing approve telegram VCBGM9ZH` — registró al estudiante como `commands.ownerAllowFrom` |
+| Validar la conexión con mensaje de prueba | ✅ Completado | Ver `openclaw-connection/01-telegram-conectado.png` — Kai respondió con el saludo personalizado y confirmó estar funcionando |
+
+## Paso 2 — Configuración del MCP de Zapier
+
+| Tarea | Estado | Notas |
+|---|---|---|
+| Crear cuenta gratuita en Zapier | ⏳ Pendiente | — |
+| Generar URL de endpoint MCP | ⏳ Pendiente | — |
+| Agregar el MCP al agente en OpenClaw | ⏳ Pendiente | — |
+| Conectar y verificar Google Docs | ⏳ Pendiente | — |
+| Conectar y verificar Google Calendar | ⏳ Pendiente | — |
+
+## Paso 3 — Flujo completo de punta a punta
+
+| Tarea | Estado | Notas |
+|---|---|---|
+| Enviar mensaje por Telegram pidiendo crear un documento | ⏳ Pendiente | — |
+| Verificar que el agente pide info adicional si falta | ⏳ Pendiente | — |
+| Verificar creación del documento en Google Docs | ⏳ Pendiente | — |
+| Verificar creación del evento en el calendario | ⏳ Pendiente | — |
+| Confirmar mensaje de finalización por Telegram | ⏳ Pendiente | — |
+
+## Paso 4 — Evidencias y entrega
+
+| Tarea | Estado | Notas |
+|---|---|---|
+| Carpeta `openclaw-connection/` creada | ✅ Completado | Dentro de este mismo repo |
+| Captura: Telegram conectado | ✅ Completado | `openclaw-connection/01-telegram-conectado.png` |
+| Captura: MCP Zapier conectado | ⏳ Pendiente | — |
+| Captura: conversación completa en Telegram | ⏳ Pendiente | — |
+| Captura: documento creado en Google Docs | ⏳ Pendiente | — |
+| Captura: evento creado en el calendario | ⏳ Pendiente | — |
+| `notes.md` con decisiones/problemas | ⏳ Pendiente | — |
+
+## Registro de errores de esta actividad
+
+Ver [`ERRORS.md`](./ERRORS.md).
