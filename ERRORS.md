@@ -107,3 +107,17 @@ openclaw mcp set zapier '{"url":"https://mcp.zapier.com/api/v1/connect","auth":"
 Tras esto, `openclaw mcp probe zapier` mostró `zapier: 17 tools, Codex approval auto`.
 
 **Lección:** si un MCP HTTP falla con error 405 en el handshake, revisar/forzar el tipo de transporte (`streamable-http` vs `sse`) antes de asumir que es un problema de autenticación o de red.
+
+---
+
+## 2026-10-27 — Captura de pantalla expuso el email de un tercero real en un repositorio público
+
+**Síntoma:** durante una prueba inicial del flujo, se le pidió a Kai enviar un email real a una dirección de un tercero (no el estudiante) con el asunto "soy el bot de Dani es una prueba". La captura de esa conversación se subió al repositorio **sin redactar el email del destinatario**, en el commit `fe7263a`. El repositorio (`dochoadi-Configurando-tu-Agente-de-IA-Personal-con-OpenClaw`) es **público**.
+
+**Diagnóstico:** en la revisión final de brechas se identificó que esto viola el criterio de evaluación "no se exponen credenciales ni datos personales en los materiales entregados" — el email de un tercero real, sin su consentimiento, es un dato personal, y además se le envió un correo real sin motivo legítimo más allá de la prueba.
+
+**Solución aplicada:**
+1. Se reemplazó la captura por una versión con el email del destinatario tachado/redactado visualmente.
+2. **Limitación conocida y aceptada:** la versión original (sin redactar) permanece en el historial de git de ese commit anterior, ya pusheado a GitHub antes de detectarse el problema. Reescribir el historial (`git filter-repo` + `push --force`) habría sido la solución completa, pero el estudiante decidió conscientemente no hacerlo y dejar el historial como está, asumiendo que el dato estuvo expuesto brevemente en un repositorio público académico.
+
+**Lección:** no usar direcciones de correo de terceros reales en pruebas de integraciones de email, ni siquiera como "prueba" — usar siempre una dirección propia, una de pruebas controlada (ej. un alias propio), o un servicio de email descartable. Revisar las capturas de pantalla por datos de terceros **antes** de subirlas, no después.

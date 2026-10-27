@@ -103,7 +103,7 @@
 | Verificar creación del documento en Google Docs | ✅ Completado | Documento real creado y enlazado: `pruebabot`, propietario `dochoadi@gmail.com` |
 | Verificar creación del evento en el calendario | ✅ Completado | Evento "Manicura" creado el 28/10/2026 15:00-16:00 en `dochoadi@gmail.com` — ver `openclaw-connection/04-evento-creado-google-calendar.jpg` |
 | Confirmar mensaje de finalización por Telegram | ✅ Completado | Kai confirmó cada acción con ✅ y resumen estructurado |
-
+| **Flujo combinado real** (un solo mensaje → documento + evento vinculado → una confirmación) | ⚠️ Completado con riesgo asumido | Se probó con: *"Crea un fichero Excel que se llame Dashboard de empresa y reserva en el calendario para el 17 de noviembre para felicitar a Dani por cumpleaños"* → Kai creó ambas cosas en paralelo y confirmó todo en un solo mensaje (ver `openclaw-connection/06-flujo-combinado-solicitud.png` y `07-flujo-combinado-confirmacion.png`). **Dos matices frente al criterio literal de la guía:** (1) se usó **Google Sheets**, no Google Docs; (2) el evento de calendario fue para un recordatorio de cumpleaños, no literalmente "tiempo para revisar el documento". El estudiante decidió conscientemente que esta prueba es equivalente en patrón técnico (una solicitud → múltiples acciones relacionadas → una confirmación) y no repetir con los términos exactos de la guía |
 ## Paso 4 — Evidencias y entrega
 
 | Tarea | Estado | Notas |
@@ -111,11 +111,28 @@
 | Carpeta `openclaw-connection/` creada | ✅ Completado | Dentro de este mismo repo |
 | Captura: Telegram conectado | ✅ Completado | `openclaw-connection/01-telegram-conectado.png` |
 | Captura: MCP Zapier conectado | ⏳ Pendiente | Se vio en pantalla (estado "OpenClaw — Connected" en Zapier) pero no se guardó archivo; opcional, ya cubierto funcionalmente por las demás capturas |
-| Captura: conversación completa en Telegram | ✅ Completado | `openclaw-connection/02-conversacion-telegram-email.png` (incluye envío de email de prueba, no pedido originalmente pero evidencia adicional de que las apps funcionan) |
+| Captura: conversación completa en Telegram | ✅ Completado | `openclaw-connection/02-conversacion-telegram-email.png` — **email del destinatario tachado/redactado** tras detectar en la revisión final que exponía el dato personal de un tercero real sin su consentimiento (ver nota de privacidad abajo) |
 | Captura: documento creado en Google Docs | ✅ Completado | `openclaw-connection/03-documento-creado-google-docs.png` |
 | Captura: evento creado en el calendario | ✅ Completado | `openclaw-connection/04-evento-creado-google-calendar.jpg` |
 | Captura: agente pide info faltante | ✅ Completado | `openclaw-connection/05-agente-pide-info-faltante.png` |
-| `notes.md` con decisiones/problemas | ⏳ Pendiente | — |
+| Captura: flujo combinado (solicitud) | ✅ Completado | `openclaw-connection/06-flujo-combinado-solicitud.png` |
+| Captura: flujo combinado (confirmación) | ✅ Completado | `openclaw-connection/07-flujo-combinado-confirmacion.png` |
+| `notes.md` con decisiones/problemas | ✅ Completado | `openclaw-connection/notes.md` |
+
+## Verificación final contra "Qué vamos a evaluar"
+
+| # | Criterio | Estado | Nota |
+|---|---|---|---|
+| 1 | Bot de Telegram correctamente creado y conectado | ✅ | `@Kai_assistance_dochoadi_bot` |
+| 2 | MCP de Zapier agregado y activo en la configuración del agente | ✅ | `openclaw mcp show zapier` → 17 herramientas; sin captura dedicada del panel (cubierto funcionalmente) |
+| 3 | Integración con Google Docs: el agente crea un documento en respuesta a la solicitud | ✅ | `pruebabot` |
+| 4 | Integración con Google Calendar: el agente crea un evento vinculado a la revisión del documento | ⚠️ Riesgo asumido | Se verificó el patrón técnico (una solicitud → documento + evento → una confirmación) con Google Sheets + evento de cumpleaños, no literalmente "Google Docs + revisión del documento". Decisión consciente del estudiante, documentada aquí en vez de forzar una repetición idéntica a la guía |
+| 5 | El agente confirma la finalización de la tarea por Telegram | ✅ | En todas las pruebas |
+| 6 | El agente solicita información faltante cuando el mensaje no es suficientemente específico | ✅ | Ver captura 05 |
+| 7 | Las capturas documentan cada integración y la conversación completa de punta a punta | ✅ | 7 capturas + notes.md |
+| 8 | No se exponen credenciales ni datos personales en los materiales entregados | ✅ (corregido) | Se detectó y corrigió en revisión final: una captura exponía el email real de un tercero (destinatario de un email de prueba) — se redactó/tachó antes de la entrega. El email propio del estudiante (`dochoadi@gmail.com`) se mantiene visible por ser evidencia esperada de su propia cuenta conectada |
+
+**Decisión final:** 7/8 criterios cumplidos sin reservas; 1/8 (#4) cumplido con un riesgo de interpretación documentado y aceptado conscientemente por el estudiante, igual que en la actividad anterior.
 
 ## Registro de errores de esta actividad
 
