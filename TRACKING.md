@@ -44,17 +44,27 @@
 | Repo de documentación creado | ✅ Completado | `4GeeksAcademy/dochoadi-Configurando-tu-Agente-de-IA-Personal-con-OpenClaw` |
 | README.md / CONTEXT.md | ✅ Completado | Creados en este commit |
 
-### Brechas detectadas y plan de remediación
+### Verificación final contra los 12 criterios de evaluación
 
-| Brecha | Acción a ejecutar |
-|---|---|
-| `IDENTITY.md` sin personalizar | Conversar con OpenClaw en el chat local pidiendo Name, Emoji (y Greeting si aplica) |
-| Repo `openclaw-dochoadi` no existe | Crear en GitHub (público/privado), sin README/gitignore/licencia inicial |
-| Workspace sin remote de git | `git remote add origin git@github.com:dochoadi/openclaw-dochoadi.git` |
-| Workspace sin commits | Verificar que no haya `openclaw.json`, `.env` ni credenciales antes de `git add` |
-| Sin verificación final de subida | Captura de pantalla del repo en GitHub mostrando `IDENTITY.md` |
+| # | Criterio | Estado | Nota |
+|---|---|---|---|
+| 1 | OpenClaw instalado y accesible en el VPS | ✅ | Verificado, versión `2026.10.7` |
+| 2 | LiteLLM configurado y conectado a modelo funcional | ✅ | Probado con mensaje real |
+| 3 | Chat local devuelve respuesta válida | ✅ | `"OK FUNCIONANDO"` |
+| 4 | Repo `openclaw-<tu_usuario>` existe y es accesible | ⚠️ Riesgo asumido | Se usó el repo ya asignado por el classroom de 4Geeks en vez de crear uno nuevo con ese nombre literal, para no duplicar entregables ni romper la asociación de GitHub Classroom. **Riesgo aceptado conscientemente por el estudiante** |
+| 5 | Workspace subido a GitHub | ✅ | `.openclaw/workspace/` en el repo, commit `11ec34a` |
+| 6 | `IDENTITY.md` con Name, Emoji y Greeting | ⚠️ Riesgo asumido | Name y Emoji están en `IDENTITY.md`. El Greeting quedó guardado en `USER.md`, no en `IDENTITY.md` — limitación de esta versión de OpenClaw (su plantilla no tiene campo `Greeting`). **Riesgo aceptado conscientemente por el estudiante** |
+| 7 | Personalización vía conversación, no edición manual | ✅ | Confirmado — Name, Emoji y Greeting se configuraron hablando con OpenClaw |
+| 8 | SSH configurado para git push | ✅ | Clave `~/.ssh/id_ed25519` generada y probada contra GitHub |
+| 9 | Historial de commits muestra subida del workspace | ✅ | Commit `11ec34a` |
+| 10 | Sin archivos sensibles subidos | ✅ | Verificado archivo por archivo y en todo el historial de git (sin `openclaw.json`, `.env`, tokens ni credenciales) |
+| 11 | Conexión por SSH (no consola web) | ✅ | Confirmado por el estudiante |
+| 12 | Pasos en el orden correcto de la guía | ✅ | Seguido en orden: Actividad 1 → 2 → 3 → 4 |
+
+**Decisión final:** 10/12 criterios cumplidos sin reservas; 2/12 cumplidos con una desviación documentada y un riesgo de interpretación de rúbrica que el estudiante decidió asumir conscientemente en vez de forzar una solución artificial (crear un repo redundante, o editar `IDENTITY.md` a mano para simular un campo que OpenClaw no soporta).
 
 ## Checklist de seguridad final (antes de cualquier push)
-- [ ] Sin `openclaw.json` / `.env` en el workspace
-- [ ] Sin API keys o tokens en texto plano
-- [ ] `.gitignore` presente y verificado
+- [x] Sin `openclaw.json` / `.env` en el workspace
+- [x] Sin API keys o tokens en texto plano
+- [x] `.gitignore` presente y verificado
+- [x] Historial completo de git escaneado, sin secretos
