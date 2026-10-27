@@ -20,11 +20,11 @@
 
 | Tarea | Estado | Notas |
 |---|---|---|
-| Abrir interfaz de chat local | ⏳ Pendiente | Se hará en vivo con el estudiante |
-| Pedir a OpenClaw configurar Name | ⏳ Pendiente | Vía conversación, no edición manual |
-| Pedir a OpenClaw configurar Emoji | ⏳ Pendiente | Vía conversación |
-| Pedir a OpenClaw configurar Greeting | ⚠️ Por confirmar | La plantilla actual de `IDENTITY.md` no tiene campo `Greeting` explícito (tiene Name/Creature/Vibe/Emoji/Avatar) — se validará durante la conversación |
-| Verificar personalización aplicada | ⏳ Pendiente | Revisar `IDENTITY.md` tras la conversación |
+| Abrir interfaz de chat local | ✅ Completado | — |
+| Pedir a OpenClaw configurar Name | ✅ Completado | `Name: Kai` en `IDENTITY.md` |
+| Pedir a OpenClaw configurar Emoji | ✅ Completado | `Emoji: 🤖` en `IDENTITY.md` |
+| Pedir a OpenClaw configurar Greeting | ✅ Completado | Guardado como directiva en `USER.md` (esta versión de OpenClaw no usa un campo `Greeting` en `IDENTITY.md`): "¡Hola, soy Kai, ¿en qué puedo ayudarte Sr. Ochoa!" |
+| Verificar personalización aplicada | ✅ Completado | Verificado leyendo `IDENTITY.md` y `USER.md` directamente |
 
 ## Actividad 3 — Respaldo en GitHub
 
