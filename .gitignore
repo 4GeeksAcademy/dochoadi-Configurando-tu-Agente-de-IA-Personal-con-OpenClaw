@@ -1,0 +1,12 @@
+# Nunca subir configuración ni credenciales de OpenClaw
+openclaw.json
+openclaw.json.*
+*.env
+.env*
+*credential*
+*secret*
+*token*
+*.key
+*.pem
+id_ed25519*
+id_rsa*

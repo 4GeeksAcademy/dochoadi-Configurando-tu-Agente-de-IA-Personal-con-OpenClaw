@@ -32,9 +32,9 @@
 |---|---|---|
 | Crear SSH key en el servidor | ✅ Completado | `~/.ssh/id_ed25519` (ed25519, sin passphrase) |
 | Añadir SSH key a GitHub | ✅ Completado | Confirmado por el estudiante |
-| Crear repositorio `openclaw-dochoadi` en GitHub | ⏳ Pendiente | Pendiente de creación |
-| Conectar workspace (`~/.openclaw/workspace`) a GitHub | ⏳ Pendiente | git init ya existe en el workspace, sin remote/commits |
-| Verificar subida (captura de pantalla) | ⏳ Pendiente | — |
+| Repositorio de respaldo en GitHub | ✅ Completado (decisión documentada) | No se creó `openclaw-dochoadi` como repo nuevo. Se usó el repo ya asignado por el classroom de 4Geeks (`dochoadi-Configurando-tu-Agente-de-IA-Personal-con-OpenClaw`, público), para no duplicar entregables ni romper la asociación de GitHub Classroom. El nombre `openclaw-<usuario>` de la guía es solo un ejemplo ilustrativo |
+| Conectar workspace (`~/.openclaw/workspace`) a GitHub | ✅ Completado | Copiado a `.openclaw/workspace/` dentro de este mismo repo (vía `rsync`, excluyendo `.git`); verificación de seguridad hecha antes de copiar (sin `openclaw.json`, `.env`, tokens ni credenciales) |
+| Verificar subida (captura de pantalla) | ⏳ Pendiente | Pendiente de push + captura una vez confirmado el commit |
 
 ## Actividad 4 — Verificación de brechas
 

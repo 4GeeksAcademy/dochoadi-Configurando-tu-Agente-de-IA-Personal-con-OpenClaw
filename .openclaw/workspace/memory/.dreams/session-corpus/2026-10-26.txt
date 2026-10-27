@@ -1,0 +1,4 @@
+[main/sessions/main/de8d3b8b-79ce-459f-9d13-dd55e6e429f6#L2] User: hola estas funcionando?
+[main/sessions/main/de8d3b8b-79ce-459f-9d13-dd55e6e429f6#L6] User: Hola, Estas funcionando¿
+[main/sessions/main/de8d3b8b-79ce-459f-9d13-dd55e6e429f6#L8] User: Hola, Estas funcionando?
+[main/sessions/main/de8d3b8b-79ce-459f-9d13-dd55e6e429f6#L10] Assistant: ¡Sí, estoy funcionando! ✅ Un detalle: hace un rato hubo un error porque el sistema intentó usar un modelo (`gpt-6-luna`) al que este equipo no tiene acceso, pero ya estoy corriendo con el modelo permitido (deepseek-v4-flash) y respondiendo con normalidad. Soy tu nuevo 
